@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+	<Loggers>
+		<Logger name="br.com.lecom.liaservice.LiaServiceApplication" level="info">
+			<appender-ref ref="RollingFile" level="info" />
+			<appender-ref ref="Console" level="info" />
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="RollingFile" />
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{ISO8601} %p [%t] %C{1.}: %m%n%throwable" />
+		</Console>
+
+		<RollingFile name="RollingFile" fileName="logs/lia.log" filePattern="logs/lia-%d{dd-MM-yyyy}-%i.log">
+			<PatternLayout>
+				<pattern>%d{ISO8601} %p [%t] %C{1.}: %m%n%throwable</pattern>
+			</PatternLayout>
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="2 MB" />
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+</Configuration>

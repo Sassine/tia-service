@@ -1,0 +1,15 @@
+server:
+  port: ${WEBHOOK_SERVER_PORT:8090}
+  servlet:
+    context-path: /api
+  tomcat:
+    uri-encoding: UTF-8
+  ssl:
+    enabled: ${SSL_ENABLED:false}
+    key-alias: ${SSL_KEY_ALIAS}
+    key-store: ${SSL_KEY_STORE}
+    key-store-password: ${SSL_KEY_STORE_PASSWORD}
+
+tia-service:
+  hiMessage:
+    name: ${TIA_HI_MESSAGE:Hello}

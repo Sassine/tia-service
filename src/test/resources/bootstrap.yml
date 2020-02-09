@@ -1,0 +1,67 @@
+server:
+  port: 9393
+  ssl:
+    enabled: false
+  servlet:
+    context-path: /lia
+spring:
+  application:
+    name: lia-service
+  profiles:
+    active: development
+  cloud:
+    config:
+      enabled: false
+  jmx:
+    enabled: false
+  jpa:
+    database: h2
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+        use_sql_comments: false
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+        dialect: org.hibernate.dialect.H2Dialect
+        connection:
+          url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+          driver_class: org.h2.Driver
+          provider_class: org.hibernate.c3p0.internal.C3P0ConnectionProvider
+          username: sa
+          password: sa
+        c3p0:
+          acquire_increment: 1
+          min_size: 3
+          max_size: 120
+          timeout: 20
+          idle_test_period: 30
+          connection_pool_name: LIA
+  datasource:
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: America/Sao_Paulo
+eureka:
+  client:
+    enabled: false
+lecom:
+  sso:
+    api:
+      paths:
+        v1: null
+      url: null
+  core:
+    api:
+      paths:
+        v1: null
+      url: null
+  admin:
+    api:
+      paths:
+        v1: null
+      url: null
